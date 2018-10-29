@@ -9,4 +9,7 @@ public interface UserDao {
     int insert(User user);
 
     List<User> selectUsers();
+
+    List<User> findUserByName(String name);
+
 }

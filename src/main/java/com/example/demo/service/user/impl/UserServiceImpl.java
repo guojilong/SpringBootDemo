@@ -30,4 +30,13 @@ public class UserServiceImpl implements UserService {
         PageInfo result = new PageInfo(users);
         return result;
     }
+
+    @Override
+    public PageInfo<User> findUserByName(String name,int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> users = userDao.findUserByName(name);
+        PageInfo result = new PageInfo(users);
+        return result;
+    }
+
 }

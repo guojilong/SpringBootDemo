@@ -29,7 +29,7 @@
             #{name ,jdbcType=VARCHAR},
             <if test="age!=null">
 
-                #{age,jdbcType=INT},
+                #{age,jdbcType=INTEGER},
             </if>
             #{pass,jdbcType=VARCHAR}
         </trim>
@@ -43,5 +43,17 @@
         FROM
         <include refid="BASE_TABLE"/>
     </select>
+
+    <select id="findUserByName" resultType="com.example.demo.model.User">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+
+        WHERE
+        name =#{name,jdbcType=VARCHAR}
+    </select>
+
+
 
 </mapper>
