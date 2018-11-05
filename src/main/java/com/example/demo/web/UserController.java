@@ -80,12 +80,12 @@ public class UserController {
 
 
     @RequestMapping("/getUsers")
-    public List<User> getUsers(@RequestParam(name = "pageNum", required = false, defaultValue = "1")
+    public BaseResp<List<User>> getUsers(@RequestParam(name = "pageNum", required = false, defaultValue = "1")
                                        int pageNum,
                                @RequestParam(name = "pageSize", required = false, defaultValue = "10")
                                        int pageSize) {
 
-        return userService.findAllUser(pageNum, pageSize).getList();
+        return Response.ok(userService.findAllUser(pageNum, pageSize).getList());
     }
 
 
