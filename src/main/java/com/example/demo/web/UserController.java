@@ -33,17 +33,24 @@ public class UserController {
     @RequestMapping("/hello")
     public String hello(String name) {
 
-        String cacheHello = (String) redisTemplate.opsForValue().get("hello");
 
-        if (cacheHello == null) {
+        if (name != null) {
 
-            String sayHi = "hello world," + name + " " + title + "  again!";
+            String helloKey="hello."+name;
+            String cacheHello = (String) redisTemplate.opsForValue().get(helloKey);
 
-            redisTemplate.opsForValue().set("hello", sayHi);
-            return "hello world," + name + " " + title;
+            if (cacheHello!=null) {
+                return cacheHello;
+            }
+
+            String sayHi = name + " hello  again!";
+
+            redisTemplate.opsForValue().set(helloKey, sayHi);
+            return "hello  " + name ;
+        }else {
+            return "who are you?";
         }
 
-        return cacheHello;
     }
 
 
