@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GlassController {
+
     @Autowired
     private RedisTemplate redisTemplate;
 
 
-    @RequestMapping(name = "/video/history", method = RequestMethod.GET)
+    @RequestMapping(value = "/video/history", method = RequestMethod.GET)
     public BaseResp<VideoInfo> getPlayHistory(String userName) {
 
         if (StringUtils.isEmpty(userName)) {
@@ -32,7 +33,7 @@ public class GlassController {
         return Response.ok(videoInfo);
     }
 
-    @RequestMapping(name = "/video/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/video/update", method = RequestMethod.POST)
     public BaseResp updatePlayHistory(String videoUrl,long position, String userName) {
 
 

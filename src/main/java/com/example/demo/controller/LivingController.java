@@ -16,7 +16,7 @@ public class LivingController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @RequestMapping(name = "/getLiveInfo")
+    @RequestMapping(value = "/getLiveInfo")
     public BaseResp<LiveInfo> getLiveInfo(String userName) {
 
         if (StringUtils.isEmpty(userName)) {
@@ -29,7 +29,7 @@ public class LivingController {
     }
 
 
-    @RequestMapping(name = "/liveinfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/liveinfo", method = RequestMethod.POST)
     public BaseResp setLiveInfo(String userName, String pushUrl) {
 
         if (StringUtils.isEmpty(userName)) {

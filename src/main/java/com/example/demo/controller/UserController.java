@@ -55,7 +55,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(name = "/getUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     public BaseResp<User> getUser(String name, @RequestParam(name = "pageNum", required = false, defaultValue = "1")
             int pageNum, @RequestParam(name = "pageSize", required = false, defaultValue = "10")
                                           int pageSize) {
